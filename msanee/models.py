@@ -95,7 +95,7 @@ class Authorities(models.Model):
 
 class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatars/')
-    description = HTMLField()
+    description = models.CharField(max_length=200)
     neighbourhood = models.ForeignKey(neighbourhood,on_delete=models.CASCADE)
     username = models.ForeignKey(User,on_delete=models.CASCADE)
     name =models.CharField(max_length=100)
