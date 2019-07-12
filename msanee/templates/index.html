@@ -216,7 +216,7 @@
   
     
     </div>
-    <div class="row_marge">
+    <div class="row_pad">
         <div class="row">
             <br>
             <h3 ><strong>videos</strong></h3>
@@ -232,9 +232,36 @@
 
     </div>
     </div>
+    <div class="row_marge">
+    <div class="row">
+        <h3 ><strong>Poetry</strong> </h3>
+        <h5><strong>Check out some of the poetry posted by other users </strong></h5>
+        <br>
+      {% for blog in blogposts %}
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+        
+      <div class="card" style="width: 25rem;margin-top:10px;">
+      <div class="card-body">
+        <a href="/view/blog/{{blog.id}}" style="color:black;text-decoration:none;margin:auto;">
+          <h5 class="card-title" style="align-self: auto;">{{blog.title}}</h5>
+        </a>
+        <img class="card-img-top" src="{{blog.image.url}}" >
+        <a href="/user/{{blog.username}}" style="color:black;text-decoration:none;margin:auto;">
+          <h6 class="card-subtitle mb-2 text-muted">{{blog.username}}</h6>
+        </div>
+      </div>
+        </a>
+        <p class="card-text">{{blog.post|truncatechars:150 | safe}}</p>
+        <a href="/view/blog/{{blog.id}}" class="card-link">Continue reading</a>
+     
+    </div>
+    {% endfor %}
+    </div>
+    </div>
+    
     <div class="row_pad">
       <div class="row">
-        <br>
+       
         <h3 ><strong>Recently acquired</strong> </h3>
         <h5><strong>Get to see the most recently aquired artwork </strong></h5>
         <br>
@@ -283,73 +310,70 @@
           
       </div>
       </div>
-      <div class ="row_marge">
+      <div class ="row_pad">
         <div class="row">
           <h3 ><strong>Categories</strong> </h3>
           <h5><strong>Get to explore our categories</strong></h5>
           <br>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <div class="text-center">
-                <ul>
-                  <li>
+                
                 <a href="{% url 'businesses' %}" >
-                    <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">paintings</button>
+                    <button class="btn btn-primary" style="height:50px;  background-color: aliceblue; color: black">paintings</button>
                 </a>
-              </li>
+             
               <br>
-              <li>
+              <br>
+             
                 <a href="{% url 'businesses' %}" >
-                    <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">paintings</button>
+                    <button class="btn btn-primary" style="height:50px;  margin-top: -6px;background-color: aliceblue; color: black">paintings</button>
                 </a>
-                </li>
-                </ul>
-
-              </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                  
-              <div class="text-center">
-                  <ul>
-                    <li>
-                  <a href="{% url 'businesses' %}" >
-                      <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">paintings</button>
-                  </a>
-                </li>
-                <br>
-                <li>
-                  <a href="{% url 'businesses' %}" >
-                      <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">paintings</button>
-                  </a>
-                  </li>
-                  </ul>
-  
                 </div>
                 </div>
+               
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                   
-                <div class="text-center">
-                    <ul>
-                      <li>
-                    <a href="{% url 'businesses' %}" >
-                        <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">paintings</button>
-                    </a>
-                  </li>
-                  <br>
-                  <li>
-                    <a href="{% url 'businesses' %}" >
-                        <button class="btn btn-primary" style="height:50px;  margin-top: -6px;">paintings</button>
-                    </a>
-                    </li>
-                    </ul>
-    
-                  </div>
-                  </div>
+                    <div class="text-center">
+                        
+                        <a href="{% url 'businesses' %}" >
+                            <button class="btn btn-primary" style="height:50px;  background-color: aliceblue; color: black">paintings</button>
+                        </a>
+                     
+                      <br>
+                      <br>
+                     
+                        <a href="{% url 'businesses' %}" >
+                            <button class="btn btn-primary" style="height:50px;  margin-top: -6px;background-color: aliceblue; color: black">paintings</button>
+                        </a>
+                       
+                        </ul>
+        
+                      </div>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                          <div class="text-center">
+                              
+                              <a href="{% url 'businesses' %}" >
+                                  <button class="btn btn-primary" style="height:50px;  background-color: aliceblue; color: black">paintings</button>
+                              </a>
+                           
+                            <br>
+                            <br>
+                           
+                              <a href="{% url 'businesses' %}" >
+                                  <button class="btn btn-primary" style="height:50px;  margin-top: -6px;background-color: aliceblue; color: black">paintings</button>
+                              </a>
+                             
+                              </ul>
+              
+                            </div>
+                            </div>
                   
+          
           </div>
           </div>
         </div>
-        <footer>
-          <div class= "navbar navbar-inverse navbar-static-bottom" role="navigation">
+        <footer style="margin-top: 30px">
+          <div class= "navbar navbar-inverse navbar-static-bottom" role="navigation" >
               <div class="navbar-text pull-left">
               </div>
               <div class= "navbar-text pull-right">
@@ -359,13 +383,15 @@
               </div>
               <!--Below is the copyright information for the site. You can fill in your own here.-->
               <div class="navbar-text pull-left">
-              &copy; Msanii art inc
+              &copy; Msanii art inc 
+              <br>
+              &copy; By @niklauspeter
 
               </div>
           </div>	
           </footer>
 </div>
-</div>
+
 
 <style>
 .dark{
@@ -379,8 +405,8 @@
 }
 .card {
   position: relative;
-  border: 1px solid #333;
   margin: 2%;
+  border-color: white
   overflow: hidden;
   width: 540px;
 }
@@ -413,6 +439,29 @@
   overflow: hidden;
   width: 540px;
  
+}
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.card{
+
 }
 </style>
 {% endblock %}

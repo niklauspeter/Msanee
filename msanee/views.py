@@ -22,11 +22,12 @@ def index(request):
         current_user=request.user
         profile =Profile.objects.get(username=current_user)
         businesses = Business.objects.filter(neighbourhood=profile.neighbourhood)
+        blogposts = BlogPost.objects.filter(neighbourhood=profile.neighbourhood)
         
     except ObjectDoesNotExist:
         return redirect('create-profile')
 
-    return render(request,'index.html',{"profile":profile, "businesses":businesses})
+    return render(request,'index.html',{"profile":profile, "businesses":businesses, "blogposts":blogposts})
 
 @login_required(login_url='/accounts/login/')
 def notification(request):
